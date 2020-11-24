@@ -33,7 +33,7 @@
                     
                     <div class="links">
                         @auth
-                            <a href="#">Link</a> 
+                            <a href=" {{ route('home') }} ">My Home</a> 
                             <a href="#">Link</a>
                             <a href="#">Link</a>
                             <a href="#">Link</a>

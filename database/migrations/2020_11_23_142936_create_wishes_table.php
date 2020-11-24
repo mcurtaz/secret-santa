@@ -18,9 +18,9 @@ class CreateWishesTable extends Migration
             $table -> foreignId('author');
             $table -> foreignId('target');
             $table -> string('name', 80);
-            $table -> text('description');
-            $table -> string('link', 255);
-            $table -> float('price', 8, 2);
+            $table -> text('description') -> nullable();
+            $table -> string('link', 255) -> nullable();
+            $table -> float('price', 8, 2) -> nullable();
             $table->timestamps();
         });
     }
