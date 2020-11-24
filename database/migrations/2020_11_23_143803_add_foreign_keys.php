@@ -17,33 +17,39 @@ class AddForeignKeys extends Migration
             
             $table -> foreign('from', 'from')
                    -> references('id')
-                   -> on('identities');
+                   -> on('identities')
+                   ->onDelete('cascade');
             
             $table -> foreign('to', 'to')
                     -> references('id')
-                    -> on('identities');
+                    -> on('identities')
+                    ->onDelete('cascade');
         });
 
         Schema::table('wishes', function (Blueprint $table) {
             
             $table -> foreign('author', 'author')
                    -> references('id')
-                   -> on('identities');
+                   -> on('identities')
+                   ->onDelete('cascade');
             
             $table -> foreign('target', 'target')
                     -> references('id')
-                    -> on('identities');
+                    -> on('identities')
+                    ->onDelete('cascade');
         });
 
         Schema::table('identity_user', function (Blueprint $table) {
             
             $table -> foreign('identity_id', 'identity')
                    -> references('id')
-                   -> on('identities');
+                   -> on('identities')
+                   ->onDelete('cascade');
             
             $table -> foreign('user_id', 'user')
                     -> references('id')
-                    -> on('users');
+                    -> on('users')
+                    ->onDelete('cascade');
         });
     }
 

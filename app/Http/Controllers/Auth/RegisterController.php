@@ -88,7 +88,13 @@ class RegisterController extends Controller
                                 -> leftjoin('identity_user', 'identity_user.identity_id', '=', 'identities.id')
                                 -> where('identity_user.identity_id', '=', NULL)
                                 -> get();
+        
+        $kids = Identity::select('identities.id', 'identities.name')
+                            -> where('child', '=', 1) 
+                            -> leftjoin('identity_user', 'identity_user.identity_id', '=', 'identities.id')
+                            -> where('identity_user.identity_id', '=', NULL)
+                            -> get();
 
-        return view('auth/register', compact('identities'));
+        return view('auth/register', compact('identities','kids'));
     }
 }

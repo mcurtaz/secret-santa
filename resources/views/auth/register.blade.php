@@ -28,9 +28,34 @@
                         <div class="form-group row">
                             <label for="identity" class="col-md-4 col-form-label text-md-right">Chi sei? Identificati!</label>
                             <div class="col-md-6">
-                                <select class="form-control  @error('identity') is-invalid @enderror" name="identity" id="identity">
+                                <select class="form-control  @error('identity') is-invalid @enderror" name="identity[]" id="identity">
                                     @foreach ($identities as $identity)
                                       <option value="{{ $identity -> id }}">{{ $identity -> name }}</option>
+                                    @endforeach
+                                </select>
+                                @error('identity')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <div class="col-md-6 offset-md-4">
+                                <button class="btn btn-link" data-toggle="collapse" data-target="#childSelect" aria-expanded="true" aria-controls="childSelect">
+                                    Devi fare un regalo anche in vece di un bambino?
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="form-group row collapse hide" id="childSelect">
+                            <label for="identity" class="col-md-4 col-form-label text-md-right">Scegli bambino!</label>
+                            <div class="col-md-6">
+                                <select class="form-control  @error('identity') is-invalid @enderror" name="identity[]" id="identity">
+                                    <option value="" selected>Nessuno</option>
+                                    @foreach ($kids as $kid)
+                                      <option value="{{ $kid -> id }}">{{ $kid -> name }}</option>
                                     @endforeach
                                 </select>
                                 @error('identity')
