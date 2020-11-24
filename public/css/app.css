@@ -10903,3 +10903,125 @@ a.text-dark:focus {
   }
 }
 
+#welcome .full-height {
+  height: 100vh;
+}
+
+#welcome .flex-center {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+#welcome .position-ref {
+  position: relative;
+}
+
+#welcome .content {
+  text-align: center;
+}
+
+#welcome .title {
+  font-size: 84px;
+}
+
+#welcome .links > a {
+  color: #636b6f;
+  padding: 0 25px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.1rem;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+#welcome .m-b-md {
+  margin-bottom: 30px;
+}
+
+#header .nav-link,
+#header .navbar-brand {
+  color: #636b6f !important;
+  padding: 0 25px !important;
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.1rem !important;
+  text-decoration: none !important;
+  text-transform: uppercase !important;
+}
+
+#header .animated-icon3 {
+  width: 30px;
+  height: 20px;
+  position: relative;
+  margin: 0px;
+  transform: rotate(0deg);
+  transition: 0.5s ease-in-out;
+  cursor: pointer;
+}
+
+#header .animated-icon3 span {
+  display: block;
+  position: absolute;
+  height: 3px;
+  width: 100%;
+  border-radius: 9px;
+  opacity: 1;
+  left: 0;
+  transform: rotate(0deg);
+  transition: 0.25s ease-in-out;
+}
+
+#header .animated-icon3 span {
+  background: #636b6f;
+}
+
+#header .animated-icon3 span:nth-child(1) {
+  top: 0px;
+  transform-origin: left center;
+}
+
+#header .animated-icon3 span:nth-child(2) {
+  top: 10px;
+  transform-origin: left center;
+}
+
+#header .animated-icon3 span:nth-child(3) {
+  top: 20px;
+  transform-origin: left center;
+}
+
+#header .animated-icon3.open span:nth-child(1) {
+  transform: rotate(45deg);
+  top: 0px;
+  left: 8px;
+}
+
+#header .animated-icon3.open span:nth-child(2) {
+  width: 0%;
+  opacity: 0;
+}
+
+#header .animated-icon3.open span:nth-child(3) {
+  transform: rotate(-45deg);
+  top: 21px;
+  left: 8px;
+}
+
+#header .navbar-toggler:focus,
+#header .navbar-toggler:active,
+#header .navbar-toggler-icon:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+html,
+body {
+  background-color: #fff;
+  color: #636b6f;
+  font-family: "Nunito", sans-serif;
+  font-weight: 200;
+  height: 100vh;
+  margin: 0;
+}
+
