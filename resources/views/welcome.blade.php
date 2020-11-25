@@ -33,8 +33,8 @@
                     
                     <div class="links">
                         @auth
-                            <a href=" {{ route('home') }} ">My Home</a> 
-                            <a href="#">Link</a>
+                            <a href=" {{ route('home') }} ">Presente</a> 
+                            <a class="nav-link" href="{{ route('myWS')}}">Desideri/Suggerimenti</a>
                             <a href="#">Link</a>
                             <a href="#">Link</a>
                             <a href="#">Link</a>

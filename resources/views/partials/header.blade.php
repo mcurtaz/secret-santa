@@ -27,10 +27,10 @@
                     @endif
                 @else
                     <li class="nav-item">
-                    <a class="nav-link" href="{{ route('home') }}">My Home</a>
+                    <a class="nav-link" href="{{ route('home') }}">Presente</a>
                     </li>
                     <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
+                    <a class="nav-link" href="{{ route('myWS')}}">Desideri/Suggerimenti</a>
                     </li>
                     <li class="nav-item">
                     <a class="nav-link" href="#">Link</a>

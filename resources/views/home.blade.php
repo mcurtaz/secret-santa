@@ -16,7 +16,12 @@
             @endforeach
            
         @else
-        <p> No santas </p>
+        <form id="logout-form" action="{{ route('set-santa') }}" method="POST">
+            @csrf
+            <input type="number" name="id" value="{{ $identity -> id }}" class="d-none">
+            <label for="set-santa-btn"> {{ $identity -> name}} scopri a chi dovrai fare il regalo: </label>
+            <input class="btn btn-primary" type="submit" value="Scopri!" id="set-santa-btn">
+        </form>
         @endif
     @endforeach    
 </div> 
