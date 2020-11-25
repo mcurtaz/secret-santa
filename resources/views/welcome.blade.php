@@ -23,9 +23,9 @@
     </head>
     <body>
         <div id="welcome">
-            <div class="flex-center position-ref full-height">       
+            <div class="flex-center full-height">       
 
-                <div class="content">
+                <div class="content text-center">
                     <div class="title m-b-md">
                         Natale a casa Curtaz
                     </div>

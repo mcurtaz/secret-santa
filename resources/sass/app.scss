@@ -11,6 +11,8 @@
 
 @import 'header';
 
+@import 'home';
+
 html, body {
     background-color: #fff;
     color: #636b6f;
@@ -19,3 +21,11 @@ html, body {
     height: 100vh;
     margin: 0;
 }
+
+
+.flex-center {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+

@@ -37,9 +37,15 @@ class HomeController extends Controller
 
                 $identity['santa'] = Identity::where('id', '=', $santa -> to) -> first();
 
-                $identity['wishes'] = Wish::where('target', '=', $santa -> to) -> where('author', '=', $santa -> to) -> get();
+                $identity['wishes'] = Wish::where('target', '=', $santa -> to) 
+                                            -> where('author', '=', $santa -> to) 
+                                            -> get();
 
-                $identity['suggestion'] = Wish::where('target', '=', $santa -> to) -> where('author', '!=', $santa -> to) -> get();
+                $identity['suggestions'] = Wish::select('wishes.*', 'identities.name AS whom')
+                                                -> where('target', '=', $santa -> to) 
+                                                -> where('author', '!=', $santa -> to) 
+                                                -> join('identities', 'identities.id', '=', 'wishes.author') 
+                                                -> get();
 
             } else{
 
@@ -47,7 +53,7 @@ class HomeController extends Controller
             }
             
         }
-        
+
         return view('home', compact('identities'));
     }
 
@@ -94,12 +100,12 @@ class HomeController extends Controller
         $identities = Auth::user() -> identities() -> get();
         foreach ($identities as $identity) {
             $wishes = Wish::where('author', '=', $identity -> id)
-            -> where('target', '=', $identity -> id)
-            -> get();
+                            -> where('target', '=', $identity -> id)
+                            -> get();
             
             $suggestions = Wish::where('author', '=', $identity -> id)
-            -> where('target', '!=', $identity -> id)
-            -> get();
+                            -> where('target', '!=', $identity -> id)
+                            -> get();
             
             $identity['wishes'] = $wishes;
             $identity['suggestions'] = $suggestions;
@@ -130,6 +136,24 @@ class HomeController extends Controller
         Wish::create($data);
 
         return redirect() -> route('myWS') -> with('status', 'Desiderio/Suggerimento creato correttamente');
+    }
+
+    public function deleteWish($id){
+
+        $wish = Wish::findOrFail($id);
+
+        $userId = Auth::user() -> id;
+
+        if($wish -> author == $userId){
+
+            $wish -> delete();
+
+            return redirect() -> route('myWS') -> with('status', 'Desiderio/Suggerimento eliminato correttamente');
+
+        } else{
+
+            return redirect() -> route('myWS') -> with('error', 'Autorizzazione negata');
+        }
     }
 
 }

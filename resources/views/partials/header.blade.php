@@ -1,4 +1,4 @@
-<div id="header">
+<div id="header" class="py-1">
     <!--Navbar-->
     <nav class="navbar navbar-expand-lg">
 

@@ -4,7 +4,7 @@ return [
     'identities' => [
         [
             'name' => 'Nonna Laura',
-            'image' => 'img/nonna.jpg'
+            'image' => 'img/nonna.png'
         ],
         [
             'name' => 'Nonno Ciccio',
@@ -12,11 +12,11 @@ return [
         ],
         [
             'name' => 'Zia Annalisa',
-            'image' => 'img/annalisa.jpg'
+            'image' => 'img/annalisa.png'
         ],
         [
             'name' => 'Zia Amina',
-            'image' => 'img/amina.jpg'
+            'image' => 'img/amina.png'
         ],
         [
             'name' => 'Zio Ale',
@@ -24,7 +24,7 @@ return [
         ],
         [
             'name' => 'Mamma Barbara',
-            'image' => 'img/barbara.jpg'
+            'image' => 'img/barbara.png'
         ],
         [
             'name' => 'Papà Michi',
@@ -32,7 +32,7 @@ return [
         ],
         [
             'name' => 'Celeste',
-            'image' => 'img/celeste.jpg',
+            'image' => 'img/celeste.png',
             'child' => 1
         ],
         [

@@ -10907,20 +10907,6 @@ a.text-dark:focus {
   height: 100vh;
 }
 
-#welcome .flex-center {
-  align-items: center;
-  display: flex;
-  justify-content: center;
-}
-
-#welcome .position-ref {
-  position: relative;
-}
-
-#welcome .content {
-  text-align: center;
-}
-
 #welcome .title {
   font-size: 84px;
 }
@@ -10937,6 +10923,10 @@ a.text-dark:focus {
 
 #welcome .m-b-md {
   margin-bottom: 30px;
+}
+
+#header {
+  box-shadow: 0 4px 4px -4px rgba(0, 0, 0, 0.2);
 }
 
 #header .nav-link,
@@ -11015,6 +11005,14 @@ a.text-dark:focus {
   box-shadow: none;
 }
 
+#home .img-wrapper img {
+  width: 100%;
+}
+
+#home .card-header {
+  font-weight: 900 !important;
+}
+
 html,
 body {
   background-color: #fff;
@@ -11023,5 +11021,11 @@ body {
   font-weight: 200;
   height: 100vh;
   margin: 0;
+}
+
+.flex-center {
+  align-items: center;
+  display: flex;
+  justify-content: center;
 }
 
