@@ -109,4 +109,27 @@ class HomeController extends Controller
         return view('myWS', compact('identities'));
     }
 
+    public function createWish($id, $wish){
+
+        $identities = Identity::where('id', '!=', $id) -> get();
+        
+        return view('wish', compact('id', 'wish', 'identities'));
+    }
+
+    public function storeWish(Request $request){
+
+        $data = $request -> validate([
+            'author' => 'required',
+            'target' => 'required',
+            'name'  => 'required|min:3|max:60',
+            'description' => 'nullable|min:3|max:1000',
+            'price' => 'nullable|min:1|max:1000',
+            'link'  => 'nullable|min:5'
+        ]);
+
+        Wish::create($data);
+
+        return redirect() -> route('myWS') -> with('status', 'Desiderio/Suggerimento creato correttamente');
+    }
+
 }

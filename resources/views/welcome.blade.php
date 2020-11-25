@@ -34,10 +34,17 @@
                     <div class="links">
                         @auth
                             <a href=" {{ route('home') }} ">Presente</a> 
-                            <a class="nav-link" href="{{ route('myWS')}}">Desideri/Suggerimenti</a>
+                            <a href="{{ route('myWS')}}">Desideri/Suggerimenti</a>
                             <a href="#">Link</a>
                             <a href="#">Link</a>
-                            <a href="#">Link</a>
+                            <a href="{{ route('logout') }}"
+                            onclick="event.preventDefault();
+                                            document.getElementById('logout-form').submit();">
+                                Logout
+                            </a>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                @csrf
+                            </form>
                         @else
                             <a href="{{ route('login') }}">Login</a>
     

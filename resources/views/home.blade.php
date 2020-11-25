@@ -2,7 +2,7 @@
 @section('content')
 <div id="home">
     @foreach ($identities as $identity)
-        <p> {{ $identity -> name }} </p>
+        <h2> {{ $identity -> name }} </h2>
         @if ($identity -> santa)
 
             <p> {{ $identity -> santa -> name }} </p>
