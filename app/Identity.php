@@ -9,13 +9,14 @@ class Identity extends Model
     protected $fillable = [
         'name',
         'image',
-        'child'
+        'child',
+        'user_id'
     ];
 
     public $timestamps = false;
 
-    public function users(){
-        return $this -> belongsToMany(User::class);
+    public function user(){
+        return $this -> belongsTo(User::class);
     }
 
 }

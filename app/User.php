@@ -38,6 +38,6 @@ class User extends Authenticatable
     ];
 
     public function identities(){
-        return $this -> belongsToMany(Identity::class);
+        return $this -> hasMany(Identity::class);
     }
 }

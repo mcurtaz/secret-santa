@@ -72,10 +72,14 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
         ]);
 
-        $identity = Identity::findOrFail($data['identity']);
+        $identities = Identity::whereIn('id', $data['identity']) -> get();
 
         
-        $user -> identities() -> attach($identity);
+        foreach ($identities as $identity) {
+           $identity -> update([
+                'user_id' => $user -> id
+           ]);
+        }
 
         
         return $user;
@@ -85,14 +89,12 @@ class RegisterController extends Controller
 
         $identities = Identity::select('identities.id', 'identities.name')
                                 -> where('child', '=', 0) 
-                                -> leftjoin('identity_user', 'identity_user.identity_id', '=', 'identities.id')
-                                -> where('identity_user.identity_id', '=', NULL)
+                                -> where('user_id', '=', NULL)
                                 -> get();
         
         $kids = Identity::select('identities.id', 'identities.name')
                             -> where('child', '=', 1) 
-                            -> leftjoin('identity_user', 'identity_user.identity_id', '=', 'identities.id')
-                            -> where('identity_user.identity_id', '=', NULL)
+                            -> where('user_id', '=', NULL)
                             -> get();
 
         return view('auth/register', compact('identities','kids'));

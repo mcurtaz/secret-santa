@@ -7,11 +7,16 @@
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
+//fontawesome
+@import '~@fortawesome/fontawesome-free/css/all.css';
+
 @import 'welcome';
 
 @import 'header';
 
 @import 'home';
+
+@import 'myws';
 
 html, body {
     background-color: #fff;
@@ -29,3 +34,6 @@ html, body {
     justify-content: center;
 }
 
+.table {
+    table-layout: fixed;
+}

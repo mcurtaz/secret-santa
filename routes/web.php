@@ -24,4 +24,4 @@ Route::post('/setsanta', 'HomeController@setSanta') -> name('set-santa');
 Route::get('/WS', 'HomeController@myWS') -> name('myWS');
 Route::get('/createwish/{id}/{wish}', 'HomeController@createWish') -> name('create-wish');
 Route::post('/storewish', 'HomeController@storeWish') -> name('store-wish');
-Route::get('/delete/{id}', 'HomeController@delereWish') -> name('delete-wish');
+Route::post('/delete', 'HomeController@deleteWish') -> name('delete-wish');

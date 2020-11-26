@@ -39,12 +39,7 @@ class AddForeignKeys extends Migration
                     ->onDelete('cascade');
         });
 
-        Schema::table('identity_user', function (Blueprint $table) {
-            
-            $table -> foreign('identity_id', 'identity')
-                   -> references('id')
-                   -> on('identities')
-                   ->onDelete('cascade');
+        Schema::table('identities', function (Blueprint $table) {
             
             $table -> foreign('user_id', 'user')
                     -> references('id')
@@ -72,10 +67,11 @@ class AddForeignKeys extends Migration
             $table -> dropForeign('target');
         });
 
-        Schema::table('identity_user', function (Blueprint $table) {
+        Schema::table('identities', function (Blueprint $table) {
 
-            $table -> dropForeign('identity');
             $table -> dropForeign('user');
+            
         });
+
     }
 }

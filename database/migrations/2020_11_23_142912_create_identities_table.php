@@ -17,6 +17,7 @@ class CreateIdentitiesTable extends Migration
             $table -> id();
             $table -> string('name', 60);
             $table -> string('image', 255);
+            $table -> foreignId('user_id') -> nullable();
             $table -> boolean('child') -> default(0);
         });
     }

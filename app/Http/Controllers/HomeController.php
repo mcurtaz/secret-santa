@@ -27,7 +27,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $identities = Auth::user() -> identities() -> get();
+        $userId = Auth::user() -> id;
+        $identities = Identity::where('user_id', '=', $userId) -> get();
 
         foreach ($identities as $identity) {
 
@@ -60,10 +61,9 @@ class HomeController extends Controller
     public function setSanta(Request $request){
 
         $id = $request -> id;
+        $userId = Identity::findOrFail($id) -> user_id;
 
-        $user = Identity::where('id', '=', $id) -> first() -> users() -> first();
-
-        $identities = $user -> identities() -> get();
+        $identities = Identity::where('user_id', '=', $userId) -> get();
 
         $ids = [];
 
@@ -97,7 +97,10 @@ class HomeController extends Controller
 
     public function myWS(){
 
-        $identities = Auth::user() -> identities() -> get();
+        $userId = Auth::user() -> id;
+
+        $identities = Identity::where('user_id', '=', $userId) -> get();
+
         foreach ($identities as $identity) {
             $wishes = Wish::where('author', '=', $identity -> id)
                             -> where('target', '=', $identity -> id)
@@ -138,13 +141,15 @@ class HomeController extends Controller
         return redirect() -> route('myWS') -> with('status', 'Desiderio/Suggerimento creato correttamente');
     }
 
-    public function deleteWish($id){
+    public function deleteWish(Request $request){
 
-        $wish = Wish::findOrFail($id);
+        $wish = Wish::findOrFail($request -> id);
+
+        $author = Identity::findOrFail($wish -> author);
 
         $userId = Auth::user() -> id;
-
-        if($wish -> author == $userId){
+        
+        if($author -> user_id == $userId){
 
             $wish -> delete();
 
