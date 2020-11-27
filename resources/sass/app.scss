@@ -35,5 +35,8 @@ html, body {
 }
 
 .table {
-    table-layout: fixed;
+    td{
+        max-width: 1px;
+    }
+
 }

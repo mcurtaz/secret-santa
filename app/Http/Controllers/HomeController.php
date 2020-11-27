@@ -4,9 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\WishAction;
 use App\Identity;
 use App\Santa;
 use App\Wish;
+use App\User;
 use Carbon\Carbon;
 
 class HomeController extends Controller
@@ -26,8 +29,10 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
-    {
+
+
+
+    public function index(){
         $userId = Auth::user() -> id;
         $identities = Identity::where('user_id', '=', $userId) -> get();
 
@@ -61,6 +66,10 @@ class HomeController extends Controller
         return view('home', compact('identities'));
     }
 
+
+
+
+
     public function setSanta(Request $request){
 
         $id = $request -> id;
@@ -89,6 +98,7 @@ class HomeController extends Controller
 
             // ATTENZIONE: QUA CI VA UN IF CHE INFICIA L?ESTRAZIONE DI TUTTI SE NON CI SONO SANTA AVAILABLE (MI TOCCHEREBBE ESTRARRE UN NOME MIO)
             if($randomAvailableSanta == NULL){
+
                 aMonte();
 
                 return redirect() -> route('home') -> with('error', 'A MONTE!!! Tutto da rifare: annullate tutte le estrazioni con effetto immediato. RIFA');
@@ -106,6 +116,10 @@ class HomeController extends Controller
             
         }
     }
+
+
+
+
 
     public function myWS(){
 
@@ -130,12 +144,18 @@ class HomeController extends Controller
         return view('myWS', compact('identities'));
     }
 
+
+
+
     public function createWish($id, $wish){
 
         $identities = Identity::where('id', '!=', $id) -> get();
         
         return view('wish', compact('id', 'wish', 'identities'));
     }
+
+
+
 
     public function storeWish(Request $request){
 
@@ -148,10 +168,36 @@ class HomeController extends Controller
             'link'  => 'nullable|min:5'
         ]);
 
-        Wish::create($data);
+        $wish = Wish::create($data);
+
+
+        // dati per mail
+
+        $mail = $wish;
+        $author = Identity::findOrFail($wish -> author);
+        $target = Identity::findOrFail($wish -> target);
+
+        $mail['a_name'] = $author -> name;
+        $mail['t_name'] = $target -> name;
+        $mail['action'] = 'create';
+
+        $subject = 'Nuovo Desiderio/Suggerimento';
+
+        $santa = Santa::where('to', '=', $target -> id) -> first();
+
+        if($santa){
+            
+            $santaId = Identity::findOrFail($santa -> from) -> user_id;
+            $sendTo = User::findOrFail($santaId);
+            
+            Mail::to($sendTo) -> send(new WishAction($mail, $subject));
+
+        }
 
         return redirect() -> route('myWS') -> with('status', 'Desiderio/Suggerimento creato correttamente');
     }
+
+
 
     public function deleteWish(Request $request){
 
@@ -163,6 +209,28 @@ class HomeController extends Controller
         
         if($author -> user_id == $userId){
 
+            // dati per email
+            $mail = $wish;
+            $target = Identity::findOrFail($wish -> target);
+
+            $mail['a_name'] = $author -> name;
+            $mail['t_name'] = $target -> name;
+            $mail['action'] = 'delete';
+
+            $subject = 'Desiderio/Suggerimento eliminato';
+
+            $santa = Santa::where('to', '=', $target -> id) -> first();
+
+            if($santa){
+                
+                $santaId = Identity::findOrFail($santa -> from) -> user_id;
+                $sendTo = User::findOrFail($santaId);
+                
+                Mail::to($sendTo) -> send(new WishAction($mail, $subject));
+
+            }
+
+
             $wish -> delete();
 
             return redirect() -> route('myWS') -> with('status', 'Desiderio/Suggerimento eliminato correttamente');
@@ -172,6 +240,9 @@ class HomeController extends Controller
             return redirect() -> route('myWS') -> with('error', 'Autorizzazione negata');
         }
     }
+
+
+
 
     public function santaDone(Request $request){
 

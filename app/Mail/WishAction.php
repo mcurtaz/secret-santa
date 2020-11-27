@@ -11,14 +11,17 @@ class WishAction extends Mailable
 {
     use Queueable, SerializesModels;
 
+    public $wish;
+    public $subject;
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($wish, $subject)
     {
-        //
+        $this -> wish = $wish;
+        $this -> subject = $subject;
     }
 
     /**
@@ -28,6 +31,7 @@ class WishAction extends Mailable
      */
     public function build()
     {
-        return $this->view('view.name');
+        return $this -> subject($this -> subject)
+                        -> view('mail.wishmail');
     }
 }

@@ -15642,7 +15642,7 @@ body {
   justify-content: center;
 }
 
-.table {
-  table-layout: fixed;
+.table td {
+  max-width: 1px;
 }
 

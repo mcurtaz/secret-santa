@@ -33,11 +33,18 @@
         <div class="row">
             <div class="col-12 py-3">
                 <table class="table table-striped table-bordered">
+                    <colgroup>
+                        <col width="25%" />
+                        <col width="25%" />
+                        <col width="25%" />
+                        <col width="25%" />
+                        <col width="5%" />
+                    </colgroup>
                     <thead>
                     <tr>
                         <th scope="col">Nome</th>
-                        <th scope="col">Descrizione</th>
-                        <th scope="col">Link</th>
+                        <th scope="col" class="d-md-table-cell d-none">Descrizione</th>
+                        <th scope="col" class="d-md-table-cell d-none">Link</th>
                         <th scope="col">Prezzo</th>
                         <th scope="col">Delete</th>
                     </tr>
@@ -46,20 +53,20 @@
                     @if (count($identity -> wishes))
                         @foreach ($identity -> wishes as $wish)
                             <tr>
-                                <th scope="row">{{$wish -> name}}</th>
-                                <td class="text-truncate">{{$wish -> description}}</td>
-                                <td class="text-truncate">{{$wish -> link}}</td>
+                                <th scope="row" class="text-truncate">{{$wish -> name}}</th>
+                                <td class="text-truncate d-md-table-cell d-none">{{$wish -> description}}</td>
+                                <td class="text-truncate d-md-table-cell d-none">{{$wish -> link}}</td>
                                 <td class="text-truncate">{{$wish -> price}}</td>
                                 <td class="text-truncate text-center"><i data-toggle="modal" data-name="{{$wish -> name}}"data-target="#deleteWishModal" data-id="{{$wish -> id}}" class="fas fa-times del-icon"></i></td>
                             </tr>
                         @endforeach
-                    @else
-                    <tr>
-                        <td colspan="5" class="text-center">Non hai ancora espresso desideri</td>
-                    </tr>
-                    @endif
                     </tbody>
                 </table>
+                @else
+                    </tbody>
+                </table>
+                    <h5 class="text-center py-1">Non hai ancora espresso desideri</h5>
+                @endif
             </div>
         </div>   
         
@@ -82,12 +89,20 @@
         <div class="row">
             <div class="col-12 py-3">
                 <table class="table table-striped table-bordered">
+                    <colgroup>
+                        <col width="25%" />
+                        <col width="25%" />
+                        <col width="25%" />
+                        <col width="25%" />
+                        <col width="25%" />
+                        <col width="5%" />
+                    </colgroup>
                     <thead>
                     <tr>
                         <th scope="col">Nome</th>
                         <th scope="col">A chi</th>
-                        <th scope="col">Descrizione</th>
-                        <th scope="col">Link</th>
+                        <th scope="col" class="d-md-table-cell d-none">Descrizione</th>
+                        <th scope="col" class="d-md-table-cell d-none">Link</th>
                         <th scope="col">Prezzo</th>
                         <th scope="col">Delete</th>
                     </tr>
@@ -96,21 +111,21 @@
                     @if (count($identity -> suggestions)) 
                         @foreach ($identity -> suggestions as $suggestion)
                         <tr>
-                            <th scope="row">{{$suggestion -> name}}</th>
+                            <th scope="row" class="text-truncate">{{$suggestion -> name}}</th>
                             <td class="text-truncate">{{$suggestion -> whom}}</td>
-                            <td class="text-truncate">{{$suggestion -> description}}</td>
-                            <td class="text-truncate">{{$suggestion -> link}}</td>
+                            <td class="text-truncate d-md-table-cell d-none">{{$suggestion -> description}}</td>
+                            <td class="text-truncate d-md-table-cell d-none">{{$suggestion -> link}}</td>
                             <td class="text-truncate">{{$suggestion -> price}}</td>
                             <td class="text-truncate text-center"><i data-id="{{$suggestion -> id}}" data-name="{{$suggestion -> name}}" data-toggle="modal" data-target="#deleteWishModal" class="fas fa-times del-icon"></i></td>
                         </tr>
                         @endforeach
-                    @else
-                    <tr>
-                        <td colspan="6" class="text-center">Non hai ancora dato nessun suggerimento</td>
-                    </tr>
-                    @endif
                     </tbody>
                 </table>
+                @else
+                    </tbody>
+                </table>
+                    <h5 class="text-center py-1">Non hai ancora dato nessun suggerimento</h5>
+                @endif
             </div>
         </div>   
         <div class="row">
