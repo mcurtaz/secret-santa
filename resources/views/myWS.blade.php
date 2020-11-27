@@ -2,6 +2,22 @@
 @section('content')
 <div id="WS">
     <div class="container">
+        @if (session('error'))
+        <div class="alert alert-danger alert-dismissible fade show my-3" role="alert">
+            <strong>{{session('error')}}</strong>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        @endif
+        @if (session('status'))
+        <div class="alert alert-success alert-dismissible fade show my-3" role="alert">
+            {{session('status')}}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        @endif
         @foreach ($identities as $identity)
         <div class="row py-5">
             <div class="col-12 text-center">
@@ -39,7 +55,7 @@
                         @endforeach
                     @else
                     <tr>
-                        <td colspan="5">Non hai ancora espresso desideri</td>
+                        <td colspan="5" class="text-center">Non hai ancora espresso desideri</td>
                     </tr>
                     @endif
                     </tbody>
@@ -90,7 +106,7 @@
                         @endforeach
                     @else
                     <tr>
-                        <td colspan="6">Non hai ancora dato nessun suggerimento</td>
+                        <td colspan="6" class="text-center">Non hai ancora dato nessun suggerimento</td>
                     </tr>
                     @endif
                     </tbody>

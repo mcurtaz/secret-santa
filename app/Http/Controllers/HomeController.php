@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Identity;
 use App\Santa;
 use App\Wish;
+use Carbon\Carbon;
 
 class HomeController extends Controller
 {
@@ -48,6 +49,8 @@ class HomeController extends Controller
                                                 -> join('identities', 'identities.id', '=', 'wishes.author') 
                                                 -> get();
 
+                $identity['annunciazione'] = $santa;
+
             } else{
 
                 $identity['santa'] = $santa;
@@ -85,13 +88,22 @@ class HomeController extends Controller
                                         -> first();
 
             // ATTENZIONE: QUA CI VA UN IF CHE INFICIA L?ESTRAZIONE DI TUTTI SE NON CI SONO SANTA AVAILABLE (MI TOCCHEREBBE ESTRARRE UN NOME MIO)
-            
-            Santa::create([
-                'from' => $id,
-                'to'   => $randomAvailableSanta -> id
-            ]);
+            if($randomAvailableSanta == NULL){
+                aMonte();
 
-            return redirect() -> route('home');
+                return redirect() -> route('home') -> with('error', 'A MONTE!!! Tutto da rifare: annullate tutte le estrazioni con effetto immediato. RIFA');
+            
+            }else{
+
+                Santa::create([
+                    'from' => $id,
+                    'to'   => $randomAvailableSanta -> id
+                ]);
+    
+                return redirect() -> route('home');
+
+            }
+            
         }
     }
 
@@ -161,4 +173,38 @@ class HomeController extends Controller
         }
     }
 
+    public function santaDone(Request $request){
+
+        $userId = Auth::user() -> id;
+
+        $identity = Identity::findOrFail($request -> id);
+
+        if($identity -> user_id == $userId){
+
+            $santa = Santa::where('from', '=', $identity -> id) -> first();
+
+            $santa -> update([
+                'done' => 1,
+                'done_at' => Carbon::now()
+            ]);
+
+            return redirect() -> route('home');
+
+        } else {
+
+            return redirect() -> route('home') -> with('error', 'Accesso negato');
+
+        }
+    }
+
+}
+
+
+function aMonte(){
+
+    $allSantas = Santa::all();
+
+    foreach ($allSantas as $santa) {
+       $santa -> delete();
+    }
 }

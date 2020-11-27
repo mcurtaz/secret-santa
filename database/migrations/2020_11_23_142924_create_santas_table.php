@@ -18,6 +18,7 @@ class CreateSantasTable extends Migration
             $table -> foreignId('from');
             $table -> foreignId('to');
             $table -> boolean('done') -> default(0);
+            $table -> dateTime('done_at') -> nullable();
             
         });
     }

@@ -2,6 +2,15 @@
 @section('content')
 <div id="home">
     <div class="container">
+        @if (session('error'))
+        <div class="alert alert-danger alert-dismissible fade show my-3" role="alert">
+            <strong>{{session('error')}}</strong>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        @endif
+
 
         @foreach ($identities as $identity)
 
@@ -12,7 +21,7 @@
                 </div>
             </div>
 
-            @if ($identity -> santa)
+            @if ($identity -> santa && !$identity -> annunciazione -> done)
 
                 <div class="row text-center">
                     <div class="col-6 offset-3 col-md-4 offset-md-4 img-wrapper p-4">
@@ -105,7 +114,32 @@
                         </div>
                     @endif
                 </div>
+
+                <hr>
+
+                <div class="row py-5">
+                    <div class="col-12 text-center">
+                            <h5 for="set-santa-btn">Hai fatto il regalo a {{$identity -> santa -> name }}? Annuncialo al mondo:</h5>
+                            <button type="button" class="btn btn-primary" data-name="{{$identity -> santa -> name }}" data-id="{{ $identity -> id }}" data-toggle="modal" data-target="#annuncioModal">
+                                Regalo Fatto
+                            </button>
+                    </div>
+                </div>
                
+            @elseif($identity -> santa && $identity -> annunciazione -> done)
+            <div class="row text-center">
+                <div class="col-6 offset-3 col-md-4 offset-md-4 img-wrapper p-4">
+                    <img src="{{$identity -> santa -> image}}" alt="Foto">
+                </div>
+                <div class="col-12">
+                    <h3>{{ $identity -> santa -> name }}</h3>
+                </div>
+            </div>
+            <div class="row py-5">
+                <div class="col-12 text-center">
+                       <h2>Regalo per {{$identity -> santa -> name}} già fatto il {{Carbon\Carbon::parse($identity -> annunciazione -> done_at) -> setTimezone('GMT+1') -> format('d/m/Y H:i')}}. Complimenti: missione compiuta!</h2>
+                </div>
+            </div>
             @else
             <div class="row py-5">
                 <div class="col-12 text-center">
@@ -120,5 +154,34 @@
             @endif
         @endforeach    
     </div> 
-</div> 
+</div>
+
+
+
+{{-- modal --}}
+<div class="modal fade" id="annuncioModal" tabindex="-1" role="dialog" aria-labelledby="annuncioModalTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Annunciazione Annunciazione</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <p>Se hai fatto il regalo a <span class="span-name"></span> annuncialo al mondo!</p>
+            <p>Tutti sapranno che il regalo per <span class="span-name"></span> è stato fatto ma non sapranno da chi.</p>
+            <p>Attenzione: fatto l'annuncio non si torna indietro.</p>
+        </div>
+        <div class="modal-footer">
+            <form action="{{ route('santa-done') }}" method="POST">
+                @csrf
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Annulla</button>
+            <input type="number" name="id" value="{{ $identity -> id }}" id="annuncioId" class="d-none">
+            <input class="btn btn-primary" type="submit" value="Annuncia">
+        </form>
+        </div>
+      </div>
+    </div>
+  </div>
 @endsection

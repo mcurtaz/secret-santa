@@ -37278,6 +37278,7 @@ window.$ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.
 $(document).ready(function () {
   addHamburgerButtonListener();
   addWishModalListener();
+  addAnnuncioModalListener();
 });
 
 function addHamburgerButtonListener() {
@@ -37295,6 +37296,18 @@ function addWishModalListener() {
     var targetName = $('#name');
     targetId.attr('value', wishId);
     targetName.text(wishName);
+  });
+}
+
+function addAnnuncioModalListener() {
+  $('#annuncioModal').on('show.bs.modal', function (e) {
+    var button = $(e.relatedTarget);
+    var id = button.data('id');
+    var name = button.data('name');
+    var targetId = $('#annuncioId');
+    var targetName = $('.span-name');
+    targetId.attr('value', id);
+    targetName.text(name);
   });
 }
 
