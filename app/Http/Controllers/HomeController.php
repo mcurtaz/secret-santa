@@ -108,21 +108,32 @@ class HomeController extends Controller
 
                 foreach ($users as $user) {
     
-                    Mail::to($user) -> send(new Annunciazione($annunciazione, 'name'));
+                    Mail::to($user) -> send(new Annunciazione($annunciazione, ''));
 
                 }
                 return redirect() -> route('home') -> with('error', 'A MONTE!!! Tutto da rifare: annullate tutte le estrazioni con effetto immediato. RIFA');
             
             }else{
 
-                // Santa::create([
-                //     'from' => $id,
-                //     'to'   => $randomAvailableSanta -> id
-                // ]);
+                Santa::create([
+                    'from' => $id,
+                    'to'   => $randomAvailableSanta -> id
+                ]);
 
-                $allDone = checkAllSantas();
+                $allDone = checkAllSantaSet();
 
-                dd($allDone);
+                if($allDone){
+
+                     //mail di avviso
+                    $users = User::all();
+                    $annunciazione = 'estrazioneOk';
+
+                    foreach ($users as $user) {
+    
+                        Mail::to($user) -> send(new Annunciazione($annunciazione, ''));
+    
+                    }
+                }
     
                 return redirect() -> route('home');
 
@@ -273,18 +284,34 @@ class HomeController extends Controller
                 'done_at' => Carbon::now()
             ]);
 
-            
-            //mail di avviso
+            $undoneSanta = Santa::where('done', '=', 0) -> get();
 
-            $name = Identity::where('id', '=', $santa -> to) -> first() -> name;
-            $users = User::all();
-            $annunciazione = 'regaloOk';
+            if(checkAllSantaSet() && $undoneSanta -> isEmpty()){
+                
+                //mail di avviso tutti i regali fatti
+                $annunciazione = 'allDone';
 
-            foreach ($users as $user) {
+                foreach ($users as $user) {
 
-                Mail::to($user) -> send(new Annunciazione($annunciazione, $name));
+                    Mail::to($user) -> send(new Annunciazione($annunciazione, ''));
+                }
 
+            }else{
+
+                //mail di avviso regalo fatto
+
+                $name = Identity::where('id', '=', $santa -> to) -> first() -> name;
+                $users = User::all();
+                $annunciazione = 'regaloOk';
+
+                foreach ($users as $user) {
+
+                    Mail::to($user) -> send(new Annunciazione($annunciazione, $name));
+
+                }
             }
+            
+            
 
             return redirect() -> route('home');
 
@@ -307,12 +334,14 @@ function aMonte(){
     }
 }
 
-function checkAllSantas(){
+function checkAllSantaSet(){
 
-    $identitiesId = Identity::pluck('id');
+    $identitiesId = Identity::pluck('id') -> toArray();
 
-    $santasId = Santa::pluck('from');
+    $santasId = Santa::pluck('from')-> toArray();
 
+    $diff = array_diff( $identitiesId, $santasId);
 
+    return !$diff;
     
 }
