@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\WishAction;
+use App\Mail\Annunciazione;
 use App\Identity;
 use App\Santa;
 use App\Wish;
@@ -101,14 +102,27 @@ class HomeController extends Controller
 
                 aMonte();
 
+                //mail di avviso
+                $users = User::all();
+                $annunciazione = 'aMonte';
+
+                foreach ($users as $user) {
+    
+                    Mail::to($user) -> send(new Annunciazione($annunciazione, 'name'));
+
+                }
                 return redirect() -> route('home') -> with('error', 'A MONTE!!! Tutto da rifare: annullate tutte le estrazioni con effetto immediato. RIFA');
             
             }else{
 
-                Santa::create([
-                    'from' => $id,
-                    'to'   => $randomAvailableSanta -> id
-                ]);
+                // Santa::create([
+                //     'from' => $id,
+                //     'to'   => $randomAvailableSanta -> id
+                // ]);
+
+                $allDone = checkAllSantas();
+
+                dd($allDone);
     
                 return redirect() -> route('home');
 
@@ -259,6 +273,19 @@ class HomeController extends Controller
                 'done_at' => Carbon::now()
             ]);
 
+            
+            //mail di avviso
+
+            $name = Identity::where('id', '=', $santa -> to) -> first() -> name;
+            $users = User::all();
+            $annunciazione = 'regaloOk';
+
+            foreach ($users as $user) {
+
+                Mail::to($user) -> send(new Annunciazione($annunciazione, $name));
+
+            }
+
             return redirect() -> route('home');
 
         } else {
@@ -278,4 +305,14 @@ function aMonte(){
     foreach ($allSantas as $santa) {
        $santa -> delete();
     }
+}
+
+function checkAllSantas(){
+
+    $identitiesId = Identity::pluck('id');
+
+    $santasId = Santa::pluck('from');
+
+
+    
 }
