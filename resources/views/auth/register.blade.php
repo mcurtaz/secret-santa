@@ -43,7 +43,7 @@
 
                         <div class="form-group row">
                             <div class="col-md-6 offset-md-4">
-                                <button class="btn btn-link" data-toggle="collapse" data-target="#childSelect" aria-expanded="true" aria-controls="childSelect">
+                                <button class="btn btn-link text-secondary" data-toggle="collapse" data-target="#childSelect" aria-expanded="true" aria-controls="childSelect">
                                     Devi fare un regalo anche in vece di un bambino?
                                 </button>
                             </div>
@@ -90,7 +90,7 @@
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="btn btn-secondary">
                                     {{ __('Register') }}
                                 </button>
                             </div>

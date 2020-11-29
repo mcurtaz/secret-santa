@@ -72,7 +72,7 @@
         
         <div class="row">
             <div class="col-12 py-2 text-center">
-                <a class="btn btn-primary" href=" {{route('create-wish', [$identity -> id, 1])}} " role="button">Esprimi un desiderio</a>
+                <a class="btn btn-secondary" href=" {{route('create-wish', [$identity -> id, 1])}} " role="button">Esprimi un desiderio</a>
             </div>
         </div>
             
@@ -130,7 +130,7 @@
         </div>   
         <div class="row">
             <div class="col-12 py-2 text-center">
-                <a class="btn btn-primary" href=" {{route('create-wish', [$identity -> id, 0])}} " role="button">Dai un suggerimento</a>
+                <a class="btn btn-secondary" href=" {{route('create-wish', [$identity -> id, 0])}} " role="button">Dai un suggerimento</a>
             </div>
         </div>
     @endforeach

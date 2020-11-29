@@ -20,10 +20,11 @@
 
 html, body {
     background-color: #fff;
-    color: #636b6f;
+    color: #000;
     font-family: 'Nunito', sans-serif;
-    font-weight: 200;
-    height: 100vh;
+    font-weight: 400;
+    font-size: 15px;
+    min-height: 100vh;
     margin: 0;
 }
 
@@ -39,4 +40,21 @@ html, body {
         max-width: 1px;
     }
 
+    .del-icon{
+        color: $danger;
+        font-size: 16px;
+        font-weight: bold;
+    }
+
+}
+
+.card-header{
+    background: radial-gradient(circle, rgba(191,149,63,1) 20%, rgba(252,246,186,1) 100%);
+    color: #be0a26;
+    font-weight: 800;
+}
+
+h1, h2, h3, h4, h5, h6{
+    color: $danger;
+    font-weight: bold;
 }

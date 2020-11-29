@@ -120,7 +120,7 @@
                 <div class="row py-5">
                     <div class="col-12 text-center">
                             <h5 for="set-santa-btn">Hai fatto il regalo a {{$identity -> santa -> name }}? Annuncialo al mondo:</h5>
-                            <button type="button" class="btn btn-primary" data-name="{{$identity -> santa -> name }}" data-id="{{ $identity -> id }}" data-toggle="modal" data-target="#annuncioModal">
+                            <button type="button" class="btn btn-secondary" data-name="{{$identity -> santa -> name }}" data-id="{{ $identity -> id }}" data-toggle="modal" data-target="#annuncioModal">
                                 Regalo Fatto
                             </button>
                     </div>
@@ -147,7 +147,7 @@
                         @csrf
                         <input type="number" name="id" value="{{ $identity -> id }}" class="d-none">
                         <label for="set-santa-btn">Scopri a chi dovrai fare il regalo: </label>
-                        <input class="btn btn-primary" type="submit" value="Scopri!" id="set-santa-btn">
+                        <input class="btn btn-secondary" type="submit" value="Scopri!" id="set-santa-btn">
                     </form>
                 </div>
             </div>
@@ -176,9 +176,9 @@
         <div class="modal-footer">
             <form action="{{ route('santa-done') }}" method="POST">
                 @csrf
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Annulla</button>
+            <button type="button" class="btn btn-primary" data-dismiss="modal">Annulla</button>
             <input type="number" name="id" value="{{ $identity -> id }}" id="annuncioId" class="d-none">
-            <input class="btn btn-primary" type="submit" value="Annuncia">
+            <input class="btn btn-danger" type="submit" value="Annuncia">
         </form>
         </div>
       </div>

@@ -1,9 +1,11 @@
-<div id="header" class="py-1">
+<div id="header" class="py-4">
     <!--Navbar-->
-    <nav class="navbar navbar-expand-lg">
+    <nav class="navbar fixed-top navbar-expand-lg">
 
         <!-- Navbar brand -->
-        <a class="navbar-brand" href=" {{ asset('/') }}">Natale a Casa Curtaz</a>
+        <a class="navbar-brand" href=" {{ asset('/') }}">
+            <img src="{{ asset('/img/logo.png') }}" alt="">
+        </a>
     
         <!-- Collapse button -->
         <button class="navbar-toggler hamburger-btn" type="button" data-toggle="collapse" data-target="#hamburgerMenu"
