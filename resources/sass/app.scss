@@ -28,6 +28,10 @@ html, body {
     margin: 0;
 }
 
+.margin-top{
+    margin-top: 65px;
+}
+
 
 .flex-center {
     align-items: center;
@@ -35,10 +39,18 @@ html, body {
     justify-content: center;
 }
 
+table.table-bordered > thead > tr > th, table.table-bordered > tbody > tr > th, table.table-bordered > tbody > tr > td{
+    border-color:  #00000044;
+}
+
+hr{
+    border-color: #00000044;
+}
+
+
 .table {
-    td{
-        max-width: 1px;
-    }
+
+    
 
     .del-icon{
         color: $danger;

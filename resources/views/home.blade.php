@@ -1,6 +1,6 @@
 @extends('layouts.main-layout')
 @section('content')
-<div id="home">
+<div id="home" class="margin-top">
     <div class="container">
         @if (session('error'))
         <div class="alert alert-danger alert-dismissible fade show my-3" role="alert">

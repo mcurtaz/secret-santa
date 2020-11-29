@@ -1,8 +1,8 @@
 @extends('layouts.main-layout')
 @section('content')
-<div class="container">
+<div class="container margin-top">
     <div class="row justify-content-center py-5">
-        <div class="col-md-8">
+        <div class="col-md-8 pt-3">
             <div class="card">
                 <div class="card-header">
                     @if ($wish)

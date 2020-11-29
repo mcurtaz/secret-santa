@@ -1,25 +1,29 @@
 @extends('layouts.main-layout')
 @section('content')
-<div id="WS">
-    <div class="container">
+<div id="WS" class="margin-top">
+    <div class="container pb-5">
         @if (session('error'))
-        <div class="alert alert-danger alert-dismissible fade show my-3" role="alert">
-            <strong>{{session('error')}}</strong>
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
+        <div class="pt-3">
+            <div class="alert alert-danger alert-dismissible fade show mb-0" role="alert">
+                <strong>{{session('error')}}</strong>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
         </div>
         @endif
         @if (session('status'))
-        <div class="alert alert-success alert-dismissible fade show my-3" role="alert">
-            {{session('status')}}
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
+        <div class="pt-3">
+            <div class="alert alert-success alert-dismissible fade show mb-0" role="alert">
+                {{session('status')}}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
         </div>
         @endif
         @foreach ($identities as $identity)
-        <div class="row py-5">
+        <div class="row pt-5 pb-2">
             <div class="col-12 text-center">
                 <h4> {{ $identity -> name }} </h4>
             </div>
@@ -65,7 +69,7 @@
                 @else
                     </tbody>
                 </table>
-                    <h5 class="text-center py-1">Non hai ancora espresso desideri</h5>
+                    <div class="text-center py-1">Non hai ancora espresso desideri</div>
                 @endif
             </div>
         </div>   
@@ -124,7 +128,7 @@
                 @else
                     </tbody>
                 </table>
-                    <h5 class="text-center py-1">Non hai ancora dato nessun suggerimento</h5>
+                    <div class="text-center py-1">Non hai ancora dato nessun suggerimento</div>
                 @endif
             </div>
         </div>   

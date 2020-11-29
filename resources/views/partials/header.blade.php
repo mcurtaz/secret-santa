@@ -1,4 +1,4 @@
-<div id="header" class="py-4">
+<div id="header">
     <!--Navbar-->
     <nav class="navbar fixed-top navbar-expand-lg">
 
