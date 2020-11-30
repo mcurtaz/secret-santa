@@ -15517,7 +15517,7 @@ a.text-dark:focus {
 }
 
 #welcome .links > a {
-  color: #be0a26;
+  color: #be0a26 !important;
   display: block;
   padding: 5px;
   font-size: 17px;
@@ -15682,9 +15682,10 @@ hr {
 }
 
 .card-header {
-  background: radial-gradient(circle, #bf953f 20%, #fcf6ba 100%);
+  background-color: #dec47c;
   color: #be0a26;
   font-weight: 800;
+  text-transform: capitalize;
 }
 
 h1,

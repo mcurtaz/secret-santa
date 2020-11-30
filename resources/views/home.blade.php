@@ -41,7 +41,7 @@
                     @if (count($identity -> wishes))
                         @foreach ($identity -> wishes as $wish)
                             <div class="col-md-4 col-lg-3 py-2">
-                                <div class="card">
+                                <div class="card shadow border-dark rounded">
                                     <div class="card-header">
                                     {{$wish -> name}}
                                     </div>
@@ -59,7 +59,7 @@
                                             @endif
                                         </p>
                                         @if ($wish -> link)
-                                            <a href="{{$wish -> link}}" class="float-right btn btn-primary">Link</a>
+                                            <a href="{{$wish -> link}}" class="float-right rounded btn btn-primary">Link</a>
                                         @endif
                                     </div>
                                 </div>
@@ -81,7 +81,7 @@
                     @if (count($identity -> suggestions))
                         @foreach ($identity -> suggestions as $wish)
                             <div class="col-md-4 col-lg-3 py-2">
-                                <div class="card">
+                                <div class="card shadow border-dark rounded">
                                     <div class="card-header">
                                     <strong>{{$wish -> name}}</strong>
                                     </div>
@@ -120,7 +120,7 @@
                 <div class="row py-5">
                     <div class="col-12 text-center">
                             <h5 for="set-santa-btn">Hai fatto il regalo a {{$identity -> santa -> name }}? Annuncialo al mondo:</h5>
-                            <button type="button" class="btn btn-secondary" data-name="{{$identity -> santa -> name }}" data-id="{{ $identity -> id }}" data-toggle="modal" data-target="#annuncioModal">
+                            <button type="button" class="rounded btn btn-secondary" data-name="{{$identity -> santa -> name }}" data-id="{{ $identity -> id }}" data-toggle="modal" data-target="#annuncioModal">
                                 Regalo Fatto
                             </button>
                     </div>
@@ -147,7 +147,7 @@
                         @csrf
                         <input type="number" name="id" value="{{ $identity -> id }}" class="d-none">
                         <label for="set-santa-btn">Scopri a chi dovrai fare il regalo: </label>
-                        <button id="set-santa-btn" class="btn btn-secondary" type="submit">Scopri!</button>
+                        <button id="set-santa-btn" class="rounded btn btn-secondary" type="submit">Scopri!</button>
                     </form>
                 </div>
             </div>
@@ -176,9 +176,9 @@
         <div class="modal-footer">
             <form action="{{ route('santa-done') }}" method="POST">
                 @csrf
-            <button type="button" class="btn btn-primary" data-dismiss="modal">Annulla</button>
+            <button type="button" class="rounded btn btn-primary" data-dismiss="modal">Annulla</button>
             <input type="number" name="id" value="{{ $identity -> id }}" id="annuncioId" class="d-none">
-            <button class="btn btn-danger" type="submit">Annuncia</button>
+            <button class="rounded btn btn-danger" type="submit">Annuncia</button>
         </form>
         </div>
       </div>

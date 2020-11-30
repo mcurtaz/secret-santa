@@ -19,12 +19,14 @@ class Annunciazione extends Mailable
 
     public $annunciazione;
     public $name;
+    public $subject;
 
     public function __construct($annunciazione, $name)
     {
         
         $this -> annunciazione = $annunciazione;
         $this -> name = $name;
+        $this -> subject = $subject;
     }
 
     /**
@@ -34,6 +36,7 @@ class Annunciazione extends Mailable
      */
     public function build()
     {
-        return $this->view('mail.annunciazione');
+        return $this-> subject($this -> subject)
+                    -> view('mail.annunciazione');
     }
 }

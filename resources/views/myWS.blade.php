@@ -76,7 +76,7 @@
         
         <div class="row">
             <div class="col-12 py-2 text-center">
-                <a class="btn btn-secondary" href=" {{route('create-wish', [$identity -> id, 1])}} " role="button">Esprimi un desiderio</a>
+                <a class="rounded btn btn-secondary" href=" {{route('create-wish', [$identity -> id, 1])}} " role="button">Esprimi un desiderio</a>
             </div>
         </div>
             
@@ -134,7 +134,7 @@
         </div>   
         <div class="row">
             <div class="col-12 py-2 text-center">
-                <a class="btn btn-secondary" href=" {{route('create-wish', [$identity -> id, 0])}} " role="button">Dai un suggerimento</a>
+                <a class="rounded btn btn-secondary" href=" {{route('create-wish', [$identity -> id, 0])}} " role="button">Dai un suggerimento</a>
             </div>
         </div>
     @endforeach
@@ -157,11 +157,11 @@
           Vuoi davvero eliminare il desiderio/suggerimento <span id="name"></span>?
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Annulla</button>
+          <button type="button" class="rounded btn btn-secondary" data-dismiss="modal">Annulla</button>
           <form action=" {{route('delete-wish')}} " method="POST">
               @csrf
                 <input class="d-none" name="id" type="number" id="wishId">
-                <button type="submit" class="btn btn-danger">Elimina</button>
+                <button type="submit" class="rounded btn btn-danger">Elimina</button>
           </form>
         </div>
       </div>

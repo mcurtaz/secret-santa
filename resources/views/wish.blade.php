@@ -3,7 +3,7 @@
 <div class="container margin-top">
     <div class="row justify-content-center py-5">
         <div class="col-md-8 pt-3">
-            <div class="card">
+            <div class="card shadow border-dark">
                 <div class="card-header">
                     @if ($wish)
                         Nuovo Desiderio
@@ -92,7 +92,7 @@
 
                         <div class="form-group row mb-0">
                             <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-secondary">
+                                <button type="submit" class="rounded btn btn-secondary">
                                     @if ($wish)
                                         Crea Desiderio
                                     @else

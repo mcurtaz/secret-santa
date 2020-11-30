@@ -61,9 +61,10 @@ hr{
 }
 
 .card-header{
-    background: radial-gradient(circle, rgba(191,149,63,1) 20%, rgba(252,246,186,1) 100%);
+    background-color: #dec47c;
     color: #be0a26;
     font-weight: 800;
+    text-transform: capitalize;
 }
 
 h1, h2, h3, h4, h5, h6{

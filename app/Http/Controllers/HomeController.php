@@ -105,10 +105,11 @@ class HomeController extends Controller
                 //mail di avviso
                 $users = User::all();
                 $annunciazione = 'aMonte';
+                $subject = 'Attenzione: estrazione annullata!';
 
                 foreach ($users as $user) {
     
-                    Mail::to($user) -> send(new Annunciazione($annunciazione, ''));
+                    Mail::to($user) -> send(new Annunciazione($annunciazione, '', $subject));
 
                 }
                 return redirect() -> route('home') -> with('error', 'A MONTE!!! Tutto da rifare: annullate tutte le estrazioni con effetto immediato. RIFA');
@@ -127,10 +128,10 @@ class HomeController extends Controller
                      //mail di avviso
                     $users = User::all();
                     $annunciazione = 'estrazioneOk';
-
+                    $subject = 'Estrazione andata a buon fine!';
                     foreach ($users as $user) {
     
-                        Mail::to($user) -> send(new Annunciazione($annunciazione, ''));
+                        Mail::to($user) -> send(new Annunciazione($annunciazione, '', $subject));
     
                     }
                 }
@@ -160,6 +161,12 @@ class HomeController extends Controller
             $suggestions = Wish::where('author', '=', $identity -> id)
                             -> where('target', '!=', $identity -> id)
                             -> get();
+            
+            foreach ($suggestions as $suggestion) {
+                $target = Identity::findOrFail($suggestion -> target);
+
+                $suggestion['whom'] = $identity -> name;
+            }
             
             $identity['wishes'] = $wishes;
             $identity['suggestions'] = $suggestions;
@@ -206,7 +213,15 @@ class HomeController extends Controller
         $mail['t_name'] = $target -> name;
         $mail['action'] = 'create';
 
-        $subject = 'Nuovo Desiderio/Suggerimento';
+        if($author == $target){
+
+            $subject = $author . 'ha espresso un nuovo Desiderio!';
+
+        } else{
+
+            $subject = $author . 'vuole darti un suggerimento!';
+
+        }
 
         $santa = Santa::where('to', '=', $target -> id) -> first();
 
@@ -290,10 +305,10 @@ class HomeController extends Controller
                 
                 //mail di avviso tutti i regali fatti
                 $annunciazione = 'allDone';
-
+                $subject = 'Annunciazione';
                 foreach ($users as $user) {
 
-                    Mail::to($user) -> send(new Annunciazione($annunciazione, ''));
+                    Mail::to($user) -> send(new Annunciazione($annunciazione, '', $subject));
                 }
 
             }else{
@@ -303,6 +318,7 @@ class HomeController extends Controller
                 $name = Identity::where('id', '=', $santa -> to) -> first() -> name;
                 $users = User::all();
                 $annunciazione = 'regaloOk';
+                $subject = 'Regalo per' . $name . 'fatto!';
 
                 foreach ($users as $user) {
 
