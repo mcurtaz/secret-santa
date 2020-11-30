@@ -21,7 +21,7 @@ class Annunciazione extends Mailable
     public $name;
     public $subject;
 
-    public function __construct($annunciazione, $name)
+    public function __construct($annunciazione, $name, $subject)
     {
         
         $this -> annunciazione = $annunciazione;
