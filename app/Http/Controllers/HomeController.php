@@ -215,11 +215,11 @@ class HomeController extends Controller
 
         if($author == $target){
 
-            $subject = $author . 'ha espresso un nuovo Desiderio!';
+            $subject = $author -> name . 'ha espresso un nuovo Desiderio!';
 
         } else{
 
-            $subject = $author . 'vuole darti un suggerimento!';
+            $subject = $author -> name . 'vuole darti un suggerimento!';
 
         }
 
@@ -318,11 +318,11 @@ class HomeController extends Controller
                 $name = Identity::where('id', '=', $santa -> to) -> first() -> name;
                 $users = User::all();
                 $annunciazione = 'regaloOk';
-                $subject = 'Regalo per' . $name . 'fatto!';
+                $subject = 'Regalo per ' . $name . ' fatto!';
 
                 foreach ($users as $user) {
 
-                    Mail::to($user) -> send(new Annunciazione($annunciazione, $name));
+                    Mail::to($user) -> send(new Annunciazione($annunciazione, $name, $subject));
 
                 }
             }

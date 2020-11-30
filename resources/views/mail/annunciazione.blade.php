@@ -27,7 +27,7 @@
         @elseif($annunciazione == 'estrazioneOk')
             <h2 style="color:  #3F5907;">Comunicazione:</h2>
             <p>C'era una probabilità, rara ma c'era, che l'estrazione andasse per il verso storto. Che producesse degli incastri per cui l'ultimo a pescare avrebbe potuto soltanto pescare se stesso quindi sarebbe stato tutto da rifare.</p>
-            <p>Fortuna vuole che non sia questo il caso. Per cui vi comunico che l'estrazione è andata a buon fine. In altre parole <strong style="color: #3F5907;">A TUTTI &Egrave; STATO ASSEGNATO A CHI FARE IL REGALO. VAI DI REGALI! SOTTO COI DESIDERI! AVANTI COI SUGGERIMENTI!</strong></p>
+            <p>Fortuna vuole che non sia questo il caso. Per cui vi comunico che l'estrazione è andata a buon fine. In altre parole <strong style="color: #3F5907;">a tutti &egrave; stato assegnato un destinatario di regalo. VAI DI REGALI! sotto coi desideri! avanti coi suggerimenti!</strong></p>
             <p style="width: 100%; text-align:center;"><a style="color: #be0a26; text-decoration: none;"href="https://nataleacasacurtaz.it/home">Vai alla tua Home</a></p>
         @elseif($annunciazione == 'regaloOk')
             <h2 style="color: #be0a26;">Comunicazione:</h2> 

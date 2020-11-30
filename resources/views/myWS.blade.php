@@ -38,17 +38,17 @@
             <div class="col-12 py-3">
                 <table class="table table-striped table-bordered">
                     <colgroup>
-                        <col width="25%" />
-                        <col width="25%" />
-                        <col width="25%" />
-                        <col width="25%" />
-                        <col width="5%" />
+                        <col width="18%" />
+                        <col width="18%" />
+                        <col width="18%" />
+                        <col width="18%" />
+                        <col width="10%" />
                     </colgroup>
                     <thead>
                     <tr>
                         <th scope="col">Nome</th>
-                        <th scope="col" class="d-md-table-cell d-none">Descrizione</th>
-                        <th scope="col" class="d-md-table-cell d-none">Link</th>
+                        <th scope="col" class="d-lg-table-cell d-none">Descrizione</th>
+                        <th scope="col" class="d-lg-table-cell d-none">Link</th>
                         <th scope="col">Prezzo</th>
                         <th scope="col">Delete</th>
                     </tr>
@@ -58,8 +58,8 @@
                         @foreach ($identity -> wishes as $wish)
                             <tr>
                                 <th scope="row" class="text-truncate">{{$wish -> name}}</th>
-                                <td class="text-truncate d-md-table-cell d-none">{{$wish -> description}}</td>
-                                <td class="text-truncate d-md-table-cell d-none">{{$wish -> link}}</td>
+                                <td class="text-truncate d-lg-table-cell d-none">{{$wish -> description}}</td>
+                                <td class="text-truncate d-lg-table-cell d-none">{{$wish -> link}}</td>
                                 <td class="text-truncate">{{$wish -> price}}</td>
                                 <td class="text-truncate text-center"><i data-toggle="modal" data-name="{{$wish -> name}}"data-target="#deleteWishModal" data-id="{{$wish -> id}}" class="fas fa-times del-icon"></i></td>
                             </tr>
@@ -94,19 +94,19 @@
             <div class="col-12 py-3">
                 <table class="table table-striped table-bordered">
                     <colgroup>
-                        <col width="25%" />
-                        <col width="25%" />
-                        <col width="25%" />
-                        <col width="25%" />
-                        <col width="25%" />
-                        <col width="5%" />
+                        <col width="15%" />
+                        <col width="15%" />
+                        <col width="15%" />
+                        <col width="15%" />
+                        <col width="15%" />
+                        <col width="10%" />
                     </colgroup>
                     <thead>
                     <tr>
                         <th scope="col">Nome</th>
                         <th scope="col">A chi</th>
-                        <th scope="col" class="d-md-table-cell d-none">Descrizione</th>
-                        <th scope="col" class="d-md-table-cell d-none">Link</th>
+                        <th scope="col" class="d-lg-table-cell d-none">Descrizione</th>
+                        <th scope="col" class="d-lg-table-cell d-none">Link</th>
                         <th scope="col">Prezzo</th>
                         <th scope="col">Delete</th>
                     </tr>
@@ -117,8 +117,8 @@
                         <tr>
                             <th scope="row" class="text-truncate">{{$suggestion -> name}}</th>
                             <td class="text-truncate">{{$suggestion -> whom}}</td>
-                            <td class="text-truncate d-md-table-cell d-none">{{$suggestion -> description}}</td>
-                            <td class="text-truncate d-md-table-cell d-none">{{$suggestion -> link}}</td>
+                            <td class="text-truncate d-lg-table-cell d-none">{{$suggestion -> description}}</td>
+                            <td class="text-truncate d-lg-table-cell d-none">{{$suggestion -> link}}</td>
                             <td class="text-truncate">{{$suggestion -> price}}</td>
                             <td class="text-truncate text-center"><i data-id="{{$suggestion -> id}}" data-name="{{$suggestion -> name}}" data-toggle="modal" data-target="#deleteWishModal" class="fas fa-times del-icon"></i></td>
                         </tr>

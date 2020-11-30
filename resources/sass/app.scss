@@ -50,7 +50,9 @@ hr{
 
 .table {
 
-    
+    td, th{
+        max-width: 1px;
+    }
 
     .del-icon{
         color: $danger;

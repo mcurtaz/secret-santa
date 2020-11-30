@@ -15675,6 +15675,11 @@ hr {
   border-color: #00000044;
 }
 
+.table td,
+.table th {
+  max-width: 1px;
+}
+
 .table .del-icon {
   color: #be0a26;
   font-size: 16px;
