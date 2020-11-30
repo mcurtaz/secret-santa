@@ -87,16 +87,6 @@ class RegisterController extends Controller
 
     public function returnView(){
 
-        $identities = Identity::select('identities.id', 'identities.name')
-                                -> where('child', '=', 0) 
-                                -> where('user_id', '=', NULL)
-                                -> get();
-        
-        $kids = Identity::select('identities.id', 'identities.name')
-                            -> where('child', '=', 1) 
-                            -> where('user_id', '=', NULL)
-                            -> get();
-
-        return view('auth/register', compact('identities','kids'));
+        return view('auth/register');
     }
 }

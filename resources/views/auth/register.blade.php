@@ -1,5 +1,15 @@
 @extends('layouts.main-layout')
-
+<?php
+        $identities = App\Identity::select('identities.id', 'identities.name')
+                                -> where('child', '=', 0) 
+                                -> where('user_id', '=', NULL)
+                                -> get();
+        
+        $kids = App\Identity::select('identities.id', 'identities.name')
+                            -> where('child', '=', 1) 
+                            -> where('user_id', '=', NULL)
+                            -> get();
+?>
 @section('content')
 <div class="container margin-top">
     <div class="row justify-content-center py-5">
