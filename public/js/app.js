@@ -37279,6 +37279,7 @@ $(document).ready(function () {
   addHamburgerButtonListener();
   addWishModalListener();
   addAnnuncioModalListener();
+  allDisablerOnSubmit();
 });
 
 function addHamburgerButtonListener() {
@@ -37308,6 +37309,17 @@ function addAnnuncioModalListener() {
     var targetName = $('.span-name');
     targetId.attr('value', id);
     targetName.text(name);
+  });
+}
+
+function allDisablerOnSubmit() {
+  var submit = $('button[type="submit"]');
+  submit.on('click', function () {
+    var allButton = $('button');
+    var allLink = $('a');
+    allButton.attr('disabled', true);
+    allLink.addClass('disabled');
+    $(this).parents('form').submit();
   });
 }
 

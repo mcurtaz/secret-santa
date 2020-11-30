@@ -147,7 +147,7 @@
                         @csrf
                         <input type="number" name="id" value="{{ $identity -> id }}" class="d-none">
                         <label for="set-santa-btn">Scopri a chi dovrai fare il regalo: </label>
-                        <input class="btn btn-secondary" type="submit" value="Scopri!" id="set-santa-btn">
+                        <button id="set-santa-btn" class="btn btn-secondary" type="submit">Scopri!</button>
                     </form>
                 </div>
             </div>
@@ -178,7 +178,7 @@
                 @csrf
             <button type="button" class="btn btn-primary" data-dismiss="modal">Annulla</button>
             <input type="number" name="id" value="{{ $identity -> id }}" id="annuncioId" class="d-none">
-            <input class="btn btn-danger" type="submit" value="Annuncia">
+            <button class="btn btn-danger" type="submit">Annuncia</button>
         </form>
         </div>
       </div>

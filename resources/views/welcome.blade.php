@@ -45,10 +45,9 @@
                     <div class="col-12">
                         <div class="links text-center">
                             @auth
-                                <a href=" {{ route('home') }} ">Presente</a> 
+                                <a href=" {{ route('home') }} ">Home</a> 
                                 <a href="{{ route('myWS')}}">Desideri/Suggerimenti</a>
-                                <a href="#">Link</a>
-                                <a href="#">Link</a>
+                                <a href="{{route('help')}}">Help</a>
                                 <a href="{{ route('logout') }}"
                                 onclick="event.preventDefault();
                                                 document.getElementById('logout-form').submit();">
