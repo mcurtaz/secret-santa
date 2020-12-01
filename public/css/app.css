@@ -15549,7 +15549,7 @@ a.text-dark:focus {
 }
 
 #header .navbar {
-  background: radial-gradient(circle, #bf953f 20%, #fcf6ba 100%);
+  background-color: #dec47c;
   box-shadow: 0 4px 4px -4px rgba(0, 0, 0, 0.4);
 }
 
@@ -15631,6 +15631,12 @@ a.text-dark:focus {
   box-shadow: none;
 }
 
+@media (min-width: 768px) {
+  #header .navbar {
+    background: radial-gradient(circle, #bf953f 20%, #fcf6ba 100%);
+  }
+}
+
 #home .img-wrapper img {
   width: 100%;
 }
@@ -15689,7 +15695,7 @@ hr {
 .card-header {
   background-color: #dec47c;
   color: #be0a26;
-  font-weight: 800;
+  font-weight: 600;
   text-transform: capitalize;
 }
 

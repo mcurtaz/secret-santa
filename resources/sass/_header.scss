@@ -1,8 +1,8 @@
 #header{
 
     .navbar{
+        background-color: #dec47c;
         
-        background: radial-gradient(circle, rgba(191,149,63,1) 20%, rgba(252,246,186,1) 100%);
         box-shadow: 0 4px 4px -4px rgba(0,0,0,.4);
 
     }
@@ -114,5 +114,12 @@
     .navbar-toggler-icon:focus {
     outline: none;
     box-shadow: none;
-}
+    }
+
+    @include media-breakpoint-up(md) { 
+        
+        .navbar{
+            background: radial-gradient(circle, rgba(191,149,63,1) 20%, rgba(252,246,186,1) 100%);
+        }
+    }
 }
