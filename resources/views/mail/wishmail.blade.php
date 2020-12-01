@@ -22,12 +22,12 @@
                 <h2 style="color: #be0a26;">Attenzione:</h2>
                 <p><strong>{{$wish -> a_name}}</strong> ha cancellato il desiderio <strong style="color: #be0a26;">{{$wish -> name}}</strong>.</p>
                 <p>L'avevi già preso? Regalaglielo lo stesso, ma ricordati di metterci lo scontrino così lo può restituire e prendersi qualcos'altro!</p>
-                <p style="width: 100%; text-align:center;"><a style="color: #be0a26; text-decoration: none;"href="https://nataleacasacurtaz.it/home">Vai alla tua Home</a></p>
+                <p style="width: 100%; text-align:center;"><a style="color: #be0a26; text-decoration: none;"href="http://nataleacasacurtaz.it/home">Vai alla tua Home</a></p>
             @else
                 <h2 style="color: #3F5907;">Comunicazione:</h2>
                 <p><strong>{{$wish -> a_name}}</strong> ha espresso un nuovo desiderio: <strong style="color: #be0a26;">{{$wish -> name}}</strong>.</p>
                 <p>Ricordati che se hai già fatto questo regalo puoi fare un annuncio. Così la smettono di esprimere desideri o darti suggerimenti e io la smetto di darti fastidio con queste mail.</p>
-                <p style="width: 100%; text-align:center;"><a style="color: #be0a26; text-decoration: none;"href="https://nataleacasacurtaz.it/home">Vai alla tua Home</a></p>
+                <p style="width: 100%; text-align:center;"><a style="color: #be0a26; text-decoration: none;"href="http://nataleacasacurtaz.it/home">Vai alla tua Home</a></p>
             @endif
         @else
             @if ($wish -> action == 'delete')
@@ -35,12 +35,12 @@
                 <p><strong>{{$wish -> a_name}}</strong> ti aveva suggerito di prendere <strong style="color: #be0a26;">{{$wish -> name}}</strong> per <strong>{{$wish -> t_name}}</strong>.</p>
                 <p>Adesso ha deciso di <strong>cancellare</strong> questo suggerimento. Non si sa perchè.</p>
                 <p>L'avevi già preso? Regalaglielo lo stesso, ma ricordati di metterci lo scontrino così lo può restituire e prendersi qualcos'altro!</p>
-                <p style="width: 100%; text-align:center;"><a style="color: #be0a26; text-decoration: none;"href="https://nataleacasacurtaz.it/home">Vai alla tua Home</a></p>
+                <p style="width: 100%; text-align:center;"><a style="color: #be0a26; text-decoration: none;"href="http://nataleacasacurtaz.it/home">Vai alla tua Home</a></p>
             @else 
                 <h2 style="color:  #3F5907;">Comunicazione:</h2>
                 <p><strong>{{$wish -> a_name}}</strong> vuole suggerire un regalo per <strong>{{$wish -> t_name}}</strong>: <strong style="color: #be0a26;">{{$wish -> name}}</strong>.</p>
                 <p>Ricordati che se hai già fatto questo regalo puoi fare un annuncio. Così la smettono di esprimere desideri o darti suggerimenti e io la smetto di darti fastidio con queste mail.</p>
-                <p style="width: 100%; text-align:center;"><a style="color: #be0a26; text-decoration: none;"href="https://nataleacasacurtaz.it/home">Vai alla tua Home</a></p>
+                <p style="width: 100%; text-align:center;"><a style="color: #be0a26; text-decoration: none;"href="http://nataleacasacurtaz.it/home">Vai alla tua Home</a></p>
             @endif
         @endif 
     </div>

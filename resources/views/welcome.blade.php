@@ -57,10 +57,10 @@
                                     @csrf
                                 </form>
                             @else
-                                <a href="{{ route('login') }}">Login</a>
+                                <a href="{{ route('login') }}">Entra</a>
         
                                 @if (Route::has('register'))
-                                    <a href="{{ route('register') }}">Register</a>
+                                    <a href="{{ route('register') }}">Registrati</a>
                                 @endif
                             @endauth
                         </div>
