@@ -26,7 +26,7 @@
             @if ($identity -> santa && !$identity -> annunciazione -> done)
 
                 <div class="row text-center">
-                    <div class="col-6 offset-3 col-md-4 offset-md-4 img-wrapper p-4">
+                    <div class="col-8 offset-2 col-md-4 offset-md-4 img-wrapper p-4">
                         <img src="{{$identity -> santa -> image}}" alt="Foto">
                     </div>
                     <div class="col-12">
