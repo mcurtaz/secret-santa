@@ -44,7 +44,7 @@ class AddForeignKeys extends Migration
             $table -> foreign('user_id', 'user')
                     -> references('id')
                     -> on('users')
-                    ->onDelete('cascade');
+                    ->onDelete('set null');
         });
     }
 
