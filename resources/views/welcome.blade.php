@@ -58,10 +58,10 @@
                                 </form>
                             @else
                                 <a href="{{ route('login') }}">Entra</a>
-        
                                 @if (Route::has('register'))
                                     <a href="{{ route('register') }}">Registrati</a>
                                 @endif
+                                <a href="{{route('help')}}">Help</a>
                             @endauth
                         </div>
                     </div>
