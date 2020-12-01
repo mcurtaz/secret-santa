@@ -3,11 +3,13 @@
 <div id="home" class="margin-top">
     <div class="container">
         @if (session('error'))
-        <div class="alert alert-danger alert-dismissible fade show my-3" role="alert">
-            <strong>{{session('error')}}</strong>
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
+        <div class="pt-3">
+            <div class="alert alert-danger alert-dismissible fade show mb-0" role="alert">
+                <strong>{{session('error')}}</strong>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
         </div>
         @endif
 
