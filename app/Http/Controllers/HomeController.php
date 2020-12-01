@@ -163,9 +163,10 @@ class HomeController extends Controller
                             -> get();
             
             foreach ($suggestions as $suggestion) {
+
                 $target = Identity::findOrFail($suggestion -> target);
 
-                $suggestion['whom'] = $identity -> name;
+                $suggestion['whom'] = $target -> name;
             }
             
             $identity['wishes'] = $wishes;
@@ -215,11 +216,11 @@ class HomeController extends Controller
 
         if($author == $target){
 
-            $subject = $author -> name . 'ha espresso un nuovo Desiderio!';
+            $subject = $author -> name . ' ha espresso un nuovo Desiderio!';
 
         } else{
 
-            $subject = $author -> name . 'vuole darti un suggerimento!';
+            $subject = $author -> name . ' vuole darti un suggerimento!';
 
         }
 
