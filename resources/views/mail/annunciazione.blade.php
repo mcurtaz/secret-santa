@@ -32,7 +32,7 @@
         @elseif($annunciazione == 'regaloOk')
             <h2 style="color: #be0a26;">Comunicazione:</h2> 
             <p>Si comunica che il regalo per {{ $name }} è stato fatto. Non si sa da chi ma è stato fatto (o almeno così dichiara chi è incaricato di fare il regalo a {{ $name }}).</p>
-            <p style="color: #3F5907;">Buona ansia da <em>sono in ritardo, devo ancora fare il regalo</em> a tutti.</p>
+            <p style="color: #3F5907;">Buona ansia da <em>"sono in ritardo, devo ancora fare il regalo"</em> a tutti.</p>
             <p style="width: 100%; text-align:center;"><a style="color: #be0a26; text-decoration: none;"href="http://nataleacasacurtaz.it/home">Vai alla tua Home</a></p>
         @elseif($annunciazione == 'allDone')
             <h2 style="color: #be0a26;">Annunciazione Annunciazione:</h2>
