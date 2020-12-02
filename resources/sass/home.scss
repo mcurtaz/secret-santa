@@ -8,6 +8,13 @@
     }
 
     .card-header{
-        font-weight: 900 !important;
+        font-weight: 800 !important;
     }
+
+    .card-text{
+        max-height: 230px;
+        overflow-y: auto;
+    }
+
+
 }

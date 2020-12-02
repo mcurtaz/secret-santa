@@ -1,8 +1,8 @@
-@extends('layouts.app')
+@extends('layouts.main-layout')
 
 @section('content')
 <div class="container margin-top">
-    <div class="row justify-content-center">
+    <div class="row justify-content-center pt-3">
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">{{ __('Confirm Password') }}</div>
