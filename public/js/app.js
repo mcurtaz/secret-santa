@@ -42456,28 +42456,24 @@ function printWishes(response) {
       wishTarget.append(html);
     }
   } else {
-    wishTarget.html('<h6 class="text-center py-1">Nessun desiderio espresso</h6>');
-  }
+    wishTarget.html('<h6 class=" w-100 text-center pt-1 pb-4">Nessun desiderio espresso</h6>');
+  } // if(response['suggestions'].length){
+  //   for (var i = 0; i < response['suggestions'].length; i++) {
+  //     var suggestion = response['suggestions'][i];
+  //     if(!suggestion['link']){
+  //       suggestion['disabled'] = 'disabled';
+  //     }
+  //     if(!suggestion['price']){
+  //       suggestion['price'] = '???';
+  //     }
+  //     suggestion['footer'] = '<div class="card-footer">Suggerito da ' + suggestion['whom'] + '</div>';
+  //     var html = compiled(suggestion);
+  //     suggestionTarget.append(html);
+  //   }
+  // } else {
+  //   suggestionTarget.html('<h6 class=" w-100 text-center pt-1 pb-4">Nessun suggerimento dato</h6>');
+  // }
 
-  if (response['suggestions'].length) {
-    for (var i = 0; i < response['suggestions'].length; i++) {
-      var suggestion = response['suggestions'][i];
-
-      if (!suggestion['link']) {
-        suggestion['disabled'] = 'disabled';
-      }
-
-      if (!suggestion['price']) {
-        suggestion['price'] = '???';
-      }
-
-      suggestion['footer'] = '<div class="card-footer">Suggerito da ' + suggestion['whom'] + '</div>';
-      var html = compiled(suggestion);
-      suggestionTarget.append(html);
-    }
-  } else {
-    suggestionTarget.html('<h6 class="text-center py-1">Nessun suggerimento dato</h6>');
-  }
 }
 
 /***/ }),
