@@ -93,7 +93,7 @@ function idSelectListener(){
 function sendRequest(id){
 
   $.ajax({
-    url: 'http://localhost/api/getWS/' + id,
+    url: 'http://nataleacasacurtaz.it/api/getWS/' + id,
     method: 'GET',
     success: function(data){
       console.log(data);
