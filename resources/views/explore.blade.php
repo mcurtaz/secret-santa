@@ -1,5 +1,6 @@
 @extends('layouts.main-layout')
 @section('content')
+@include('partials.handlebars-template')
 <div class="container margin-top">
     <div class="row py-3">
         <div class="col-12 d-flex align-items-center flex-md-wrap overflow-auto">

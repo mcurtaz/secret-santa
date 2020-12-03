@@ -21,6 +21,10 @@ class ApiController extends Controller
             $suggestions = Wish::where('author', '!=', $id)
                             -> where('target','=', $id)
                             -> get();
+            
+            foreach ($suggestions as $suggestion) {
+                $suggestion['whom'] = Identity::find( $suggestion -> author) -> name;
+            }
 
             return response() -> json([
                 'success' => 'success',
