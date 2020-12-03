@@ -46,7 +46,8 @@
                         <div class="links text-center">
                             @auth
                                 <a href=" {{ route('home') }} ">Home</a> 
-                                <a href="{{ route('myWS')}}">Desideri/Suggerimenti</a>
+                                <a href="{{ route('myWS')}}">Miei Desideri/Suggerimenti</a>
+                                <a href="{{route('explore')}} ">Scopri Desideri</a>
                                 <a href="{{route('help')}}">Help</a>
                                 <a href="{{ route('logout') }}"
                                 onclick="event.preventDefault();

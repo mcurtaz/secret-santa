@@ -63,7 +63,7 @@ hr{
 }
 
 .card-header{
-    background-color: #dec47c;
+    background-color: $warning;
     color: #be0a26;
     font-weight: 600;
     text-transform: capitalize;
@@ -72,4 +72,22 @@ hr{
 h1, h2, h3, h4, h5, h6{
     color: $danger;
     font-weight: bold;
+}
+
+.id-wrapper{
+    min-width: 200px;
+    height: 200px;
+
+    h5{
+        opacity: 0.6;
+    }
+
+    .id-select:hover{
+        transform: scale(1.1);
+        cursor: pointer;
+    }
+    .id-select.active{
+        border: 3px solid $warning !important;
+        transform: scale(1.1);
+    }
 }

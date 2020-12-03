@@ -61,7 +61,7 @@
                                             @endif
                                         </p>
                                         @if ($wish -> link)
-                                            <a href="{{$wish -> link}}" class="float-right rounded btn btn-primary">Link</a>
+                                            <a href="{{$wish -> link}}" class="float-right rounded btn btn-secondary">Link</a>
                                         @endif
                                     </div>
                                 </div>

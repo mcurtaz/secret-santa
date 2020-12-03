@@ -32,8 +32,11 @@
                     <a class="nav-link" href="{{ route('home') }}">Home</a>
                     </li>
                     <li class="nav-item">
-                    <a class="nav-link" href="{{ route('myWS')}}">Desideri/Suggerimenti</a>
+                    <a class="nav-link" href="{{ route('myWS')}}">Miei Desideri/Suggerimenti</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('explore')}}">Scopri Desideri</a>
+                        </li>
                     <li class="nav-item">
                     <a class="nav-link" href="{{route('help')}}">Help</a>
                     </li>

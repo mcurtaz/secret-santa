@@ -1,4 +1,5 @@
 require('./bootstrap');
+const Handlebars = require("handlebars");
 
 window.$ = require('jquery');
 
@@ -8,6 +9,7 @@ $(document).ready(function () {
   addWishModalListener();
   addAnnuncioModalListener();
   allDisablerOnSubmit();
+  idSelectListener();
 
 });
 
@@ -63,5 +65,41 @@ function allDisablerOnSubmit(){
 
     $(this).parents('form').submit();
 
+  });
+}
+
+function idSelectListener(){
+
+  var idSelect = $('.id-select');
+
+  idSelect.on('click', function(){
+    
+    var id = $(this).data('id');
+    var name = $(this).data('name');
+
+    $('.id-select.active').removeClass('active');
+
+    $('this').addClass('active');
+
+    targetName = $('.name-place');
+
+    targetName.text(name);
+
+    sendRequest(id)
+  });
+
+}
+
+function sendRequest(id){
+
+  $.ajax({
+    url: 'http://localhost:8000/api/getWS/' + id,
+    method: 'GET',
+    success: function(data){
+      console.log(data);
+    },
+    error: function(err){
+      console.log(err);
+    }
   });
 }

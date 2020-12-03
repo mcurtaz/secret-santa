@@ -339,6 +339,13 @@ class HomeController extends Controller
         }
     }
 
+    public function explore(){
+
+        $identities = Identity::all();
+
+        return view('explore', compact('identities'));
+    }
+
 }
 
 

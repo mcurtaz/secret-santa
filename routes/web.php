@@ -29,3 +29,4 @@ Route::get('/createwish/{id}/{wish}', 'HomeController@createWish') -> name('crea
 Route::post('/storewish', 'HomeController@storeWish') -> name('store-wish');
 Route::post('/delete', 'HomeController@deleteWish') -> name('delete-wish');
 Route::post('/santadone', 'HomeController@santaDone') -> name('santa-done');
+Route::get('/explore', 'HomeController@explore') -> name('explore');
