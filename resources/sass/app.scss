@@ -91,3 +91,12 @@ h1, h2, h3, h4, h5, h6{
         transform: scale(1.1);
     }
 }
+
+.card-header{
+    font-weight: 800 !important;
+}
+
+.card-text{
+    max-height: 230px;
+    overflow-y: auto;
+}
