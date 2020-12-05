@@ -27,13 +27,13 @@
 
     <hr>
 
-    {{-- <div class="row">
+    <div class="row">
         <div class="col-12 pt-3 pb-1">
             <h5>Suggerimenti per <span class="name-place"></span></h5>
         </div>
     </div>
     <div class="row" id="suggestion-target">
 
-    </div> --}}
+    </div>
 </div>
 @endsection

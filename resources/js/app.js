@@ -138,27 +138,27 @@ function printWishes(response){
   }
 
 
-  // if(response['suggestions'].length){
+  if(response['suggestions'].length){
 
-  //   for (var i = 0; i < response['suggestions'].length; i++) {
-  //     var suggestion = response['suggestions'][i];
+    for (var i = 0; i < response['suggestions'].length; i++) {
+      var suggestion = response['suggestions'][i];
 
-  //     if(!suggestion['link']){
-  //       suggestion['disabled'] = 'disabled';
-  //     }
+      if(!suggestion['link']){
+        suggestion['disabled'] = 'disabled';
+      }
 
-  //     if(!suggestion['price']){
-  //       suggestion['price'] = '???';
-  //     }
+      if(!suggestion['price']){
+        suggestion['price'] = '???';
+      }
       
-  //     suggestion['footer'] = '<div class="card-footer">Suggerito da ' + suggestion['whom'] + '</div>';
-  //     var html = compiled(suggestion);
+      suggestion['footer'] = '<div class="card-footer">Suggerito da ' + suggestion['whom'] + '</div>';
+      var html = compiled(suggestion);
 
-  //     suggestionTarget.append(html);
+      suggestionTarget.append(html);
       
-  //   }
-  // } else {
-  //   suggestionTarget.html('<h6 class=" w-100 text-center pt-1 pb-4">Nessun suggerimento dato</h6>');
-  // }
+    }
+  } else {
+    suggestionTarget.html('<h6 class=" w-100 text-center pt-1 pb-4">Nessun suggerimento dato</h6>');
+  }
 
 }

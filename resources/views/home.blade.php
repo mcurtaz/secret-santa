@@ -53,7 +53,7 @@
                                             {{$wish -> price}} Euro
                                             @endif
                                         </h6>
-                                        <p class="card-text">
+                                        <p class="card-text pr-1">
                                             @if ($wish -> description)
                                                 {{$wish -> description}}
                                             @else
@@ -93,7 +93,7 @@
                                             {{$wish -> price}} Euro
                                             @endif
                                         </h6>
-                                        <p class="card-text">
+                                        <p class="card-text pr-1">
                                             @if ($wish -> description)
                                                 {{$wish -> description}}
                                             @else

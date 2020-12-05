@@ -8,7 +8,7 @@
                 <h6> 
                     {{price}} Euro
                 </h6>
-                <p class="card-text">
+                <p class="card-text pr-1">
                         {{description}}
                 </p>
                     <a href="{{link}}" class="float-right rounded btn btn-secondary {{disabled}}">Link</a>
