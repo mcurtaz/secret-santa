@@ -42423,12 +42423,9 @@ function sendRequest(id) {
     url: 'http://nataleacasacurtaz.it/api/getWS/' + id,
     method: 'GET',
     success: function success(data) {
-      console.log(data);
       printWishes(data['response']);
     },
-    error: function error(err) {
-      console.log(err);
-    }
+    error: function error(err) {}
   });
 }
 

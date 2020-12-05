@@ -96,11 +96,10 @@ function sendRequest(id){
     url: 'http://nataleacasacurtaz.it/api/getWS/' + id,
     method: 'GET',
     success: function(data){
-      console.log(data);
       printWishes(data['response']);
     },
     error: function(err){
-      console.log(err);
+      
     }
   });
 }
