@@ -32,7 +32,7 @@
             <h5>Suggerimenti per <span class="name-place"></span></h5>
         </div>
     </div>
-    <div class="row" id="suggestion-target">
+    <div class="row pb-4" id="suggestion-target">
 
     </div>
 </div>
